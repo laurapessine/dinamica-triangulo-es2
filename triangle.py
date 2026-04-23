@@ -1,3 +1,4 @@
+import sys
 from dataclasses import dataclass
 from enum import Enum, auto
 
@@ -28,3 +29,18 @@ class Triangle:
         if a == b or a == c or b == c:
             return TriangleType.ISOSCELES
         return TriangleType.SCALENE
+
+if __name__ == "__main__":
+    if len(sys.argv) != 4:
+        print('Uso correto: python triangle.py <lado1> <lado2> <lado3>')
+    else:
+        try:
+            l1 = int(sys.argv[1])
+            l2 = int(sys.argv[2])
+            l3 = int(sys.argv[3])
+
+            triangulo = Triangle(l1, l2, l3)
+
+            print(f'O triângulo é {triangulo.type.name}')
+        except ValueError:
+            print('Erro: Por favor, insira apenas valores numéricos inteiros.')
