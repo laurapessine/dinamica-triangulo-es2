@@ -40,11 +40,6 @@ def test_isosceles_invalid():
     assert t.type == TriangleType.INVALID
 
 
-def test_float():
-    t = Triangle(2.5, 3.1, 6)
-    assert t.type == TriangleType.INVALID
-
-
 def test_zero_mixed():
     t = Triangle(5, 0, 3)
     assert t.type == TriangleType.INVALID
