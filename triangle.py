@@ -56,28 +56,28 @@ class Triangle:
         if t == TriangleType.EQUILATERAL:
             return f'The sides form an equilateral triangle because all sides are equal ({a} = {b} = {c}).'
         if t == TriangleType.RIGHT:
-            if a ** 2 == b ** 2 + c ** 2: return f'The sides form a rectangular triangle because {a}² = {b}² + {c}².'
-            if b ** 2 == a ** 2 + c ** 2: return f'The sides form a rectangular triangle because {b}² = {a}² + {c}².'
-            if c ** 2 == a ** 2 + b ** 2: return f'The sides form a rectangular triangle because {c}² = {a}² + {b}².'
+            if a ** 2 == b ** 2 + c ** 2: return f'The sides form a rectangular scalene triangle because {a}² = {b}² + {c}².'
+            if b ** 2 == a ** 2 + c ** 2: return f'The sides form a rectangular scalene triangle because {b}² = {a}² + {c}².'
+            if c ** 2 == a ** 2 + b ** 2: return f'The sides form a rectangular scalene triangle because {c}² = {a}² + {b}².'
         if t == TriangleType.ISOSCELES:
             return 'The sides form an isosceles triangle because two sides are equal.'
+        # Escaleno puro (não retângulo)
         return 'The sides form a scalene triangle because all sides are different.'
 
 
 if __name__ == '__main__':
     console = Console()
     if len(sys.argv) != 4:
-        console.print('[bold yellow]⚠️  Uso correto: python triangle.py <lado1> <lado2> <lado3>[/bold yellow]')
+        console.print('[bold yellow]⚠️  Usage: python triangle.py <side1> <side2> <side3>[/bold yellow]')
     else:
         try:
             l1 = int(sys.argv[1])
             l2 = int(sys.argv[2])
             l3 = int(sys.argv[3])
             triangulo = Triangle(l1, l2, l3)
-            console.print(f'[bold green]✅ Sucesso![/bold green] [cyan]{triangulo.explanation}[/cyan]')
+            console.print(f'[bold green]✅ Success![/bold green] [cyan]{triangulo.explanation}[/cyan]')
         except ValueError as e:
             if 'invalid literal' in str(e):
-                console.print(
-                    '[bold red]❌ Erro:[/bold red] [red]Por favor, insira apenas valores numéricos inteiros.[/red]')
+                console.print('[bold red]❌ Error:[/bold red] [red]Please enter only integer numerical values.[/red]')
             else:
-                console.print(f'[bold red]🚫 Triângulo inválido:[/bold red] [red]{e}[/red]')
+                console.print(f'[bold red]🚫 Invalid triangle:[/bold red] [red]{e}[/red]')
