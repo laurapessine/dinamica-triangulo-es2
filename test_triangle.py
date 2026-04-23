@@ -16,8 +16,12 @@ def test_isosceles():
 
 
 def test_escalene():
-    t = Triangle(3, 4, 5)
-    assert t.type == TriangleType.SCALENE
+    t1 = Triangle(3, 4, 5)
+    assert t1.type == TriangleType.SCALENE
+    t2 = Triangle(4,3,5)
+    assert t2.type == TriangleType.SCALENE
+    t3 = Triangle(3,5,4)
+    assert t3.type == TriangleType.SCALENE
 
 
 def test_full_zero():
@@ -43,6 +47,11 @@ def test_isosceles_invalid():
     t = Triangle(5, 5, 10)
     assert t.type == TriangleType.INVALID
 
+def test_invalid():
+    t1 = Triangle(1,2,3)
+    assert t1.type == TriangleType.INVALID
+    t2 = Triangle(2,1,3)
+    assert t2.type == TriangleType.INVALID
 
 def test_zero_mixed():
     t1 = Triangle(5, 0, 3)
